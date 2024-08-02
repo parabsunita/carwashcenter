@@ -3,11 +3,12 @@ import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
 import carWashLogo from '../images/car-wash-logo-bhUYW2jRQcqLo9UuMyEvew-JHZ_q0K4Qaya3JpzRgX6Mg.jpeg';
+import { logo, logo_sm } from "../assets/images/image";
 
 
 
 const Logo = styled("img")({
-  height: "40px",
+   height: "50px",
 });
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
@@ -34,7 +35,7 @@ const Navbar = () => {
     <StyledAppBar position="fixed">
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Typography variant="h6">
-          <Logo src={carWashLogo} alt="Logo" />
+          <Logo src={logo_sm} alt="Logo" />
         </Typography>
         <StyledButton onClick={handleLogout}>Logout</StyledButton>
       </Toolbar>

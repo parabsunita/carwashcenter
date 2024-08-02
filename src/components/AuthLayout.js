@@ -4,11 +4,14 @@ import { Container, Box } from "@mui/material";
 
 const AuthLayout = () => {
   return (
-    <Container maxWidth="sm">
-      <Box mt={5}>
-        <Outlet />
-      </Box>
-    </Container>
+    // <Container maxWidth="sm">
+    //   <Box mt={5}>
+    //     <Outlet />
+    //   </Box>
+    // </Container>
+    <>
+     <Outlet />
+    </>
   );
 };
 
