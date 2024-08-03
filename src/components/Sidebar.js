@@ -33,6 +33,7 @@ const Sidebar = () => {
         }
       }}
       variant="permanent"
+
       
     >
       <List>
