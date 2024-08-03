@@ -153,6 +153,9 @@ const LoginPage = () => {
                 Don't have an account? Sign up here
               </Link>
             </Box>
+            <Link component={RouterLink} to="/register" variant="body2">
+                Register
+              </Link>
           </Form>
         )}
       </Formik>
