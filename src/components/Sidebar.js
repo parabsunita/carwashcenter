@@ -47,7 +47,7 @@ const Sidebar = () => {
               selected={location.pathname === item.path}
               sx={{
                 '&.Mui-selected': {
-                  backgroundColor: theme.palette.custom.apache,
+                  backgroundColor: theme.palette.custom.cello,
                   color: theme.palette.custom.firefly,
                   '&:hover': {
                     backgroundColor: theme.palette.custom.cello,
