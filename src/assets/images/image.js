@@ -4,6 +4,7 @@ import logo_sm from "./Brand_logo_sm.png";
 import signup_bg from "./new_bg.jpg";
 import carwash_bg from "./Carwash_bg.jpg";
 import Lambo from "./Lambo.jpg";
+import dodge from "./dodge_charger.jpg";
 
 export {
     brand_logo,
@@ -11,5 +12,6 @@ export {
     carwash_bg,
     logo_sm,
     logo,
-    Lambo
+    Lambo,
+    dodge
 };
