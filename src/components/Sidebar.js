@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   const menuItems = [
     { text: "Dashboard", path: "/dashboard" },
-    { text: "Node Service", path: "/node-service" },
+    { text: "Service", path: "/node-service" },
     { text: "Contact Details", path: "/contact-details" },
     { text: "Customer Details", path: "/customer-details" },
     { text: "Plan Details", path: "/plan-details" },
