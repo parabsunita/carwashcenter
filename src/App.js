@@ -18,6 +18,7 @@ import PlanDetails from "./pages/PlanDetails";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import AuthLayout from "./components/AuthLayout";
 import DashboardLayout from "./components/DashboardLayout";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/register" element={<Register/>}/>
           </Route>
 
           {/* Dashboard Routes */}
