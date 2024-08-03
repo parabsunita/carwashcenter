@@ -2,8 +2,7 @@ import React from "react";
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { styled } from "@mui/system";
-import carWashLogo from '../images/car-wash-logo-bhUYW2jRQcqLo9UuMyEvew-JHZ_q0K4Qaya3JpzRgX6Mg.jpeg';
-import { logo, logo_sm } from "../assets/images/image";
+import { logo_sm } from "../assets/images/image";
 
 
 

@@ -7,7 +7,7 @@ const theme = createTheme({
       main: "#081e36", // Blue
     },
     secondary: {
-      main: "#de9f2b", // Yellow
+      main: "#e46400", // Yellow
     },
     primary1: {
       main: "#1c395d", // Custom primary color
@@ -16,7 +16,7 @@ const theme = createTheme({
       default: "#ffffff", // White
     },
     custom: {
-      apache: "#d9b165",
+      apache: "#ff8c00",
       firefly: "#0d1e34",
       cello: "#ffffff",
       astronaut: "#2a5279",

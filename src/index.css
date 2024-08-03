@@ -1,0 +1,23 @@
+/* Scrollbar Styles for WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #081e36;
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+/* Firefox Scrollbar Styles */
+html {
+  scrollbar-color: #081e36 #f1f1f1;
+  scrollbar-width: thin;
+}
+
+/* Hide scrollbar arrows (Not natively possible) */
+/* No direct CSS for arrows; need to use custom scrollbar libraries or approaches for full control */

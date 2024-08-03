@@ -63,7 +63,7 @@ const ContactDetails = () => {
   });
   return (
    
-    <div className="wrapper regiter">
+    <div className="wrapper regiter Contact_details">
     <div className="logo">
       <div className="sign_head">
         <h1>Contact Details</h1>
