@@ -1,0 +1,14 @@
+.Washing_Card{
+    background: #fff;
+    border: 1px solid #e4e4e4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #0000001a;
+    padding: 10px;
+    cursor: pointer;
+}
+.shorter{
+    font-size: 18px;
+}
+.card_description{
+    font-size: 12px;
+}

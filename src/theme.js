@@ -27,10 +27,14 @@ const theme = createTheme({
       hoki: "#6684a4",
       hawaiianTan: "#915c16",
       signup_Button :"#1a3675",
+      dashboard_des:"#344662",
     },
   },
   typography: {
     fontFamily: "Roboto, sans-serif",
+    h6: {
+      color: "#081e36", 
+    },
   },
 });
 
