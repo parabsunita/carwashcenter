@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useTheme } from "@mui/material/styles";
 import carWashImage from "../images/car-wash-logo-bhUYW2jRQcqLo9UuMyEvew-JHZ_q0K4Qaya3JpzRgX6Mg.jpeg"; // Adjust the path accordingly
 import "./SignupPage.css";
-import { brand_logo, logo, signup_bg } from "../assets/images/image";
+import { brand_logo, Carwash_bg2, logo, signup_bg } from "../assets/images/image";
 
 const validationSchema = Yup.object({
   CentreName: Yup.string().required('Centre Name is required'),
@@ -195,7 +195,9 @@ const SignupPage = () => {
           </p>
           <img src={logo} alt="" className="brand_logo_signup" />
         </div>
-        <img src={signup_bg} alt="" />
+        <div className="image-wrapper">
+  <img src={Carwash_bg2} alt="" />
+</div>s
       </div>
 
       <div className="right-wrapper">

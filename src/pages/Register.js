@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { carwash_bg, logo } from "../assets/images/image";
+import { carwash_bg, Carwash_bgm, logo } from "../assets/images/image";
 import { useTheme } from "@mui/material/styles";
 
 const Register = () => {
@@ -69,7 +69,10 @@ const Register = () => {
           <p>Washing away the dirt. Sparkling like new..</p>
           <img src={logo} alt="" className="brand_logo_signup" />
         </div>
-        <img src={carwash_bg} alt="" className="background_image" />
+        <div className="background_image_wrapper">
+  <img src={Carwash_bgm} alt="" className="background_image" />
+</div>
+
       </div>
 
       <div className="right-wrapper regiter">

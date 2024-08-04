@@ -37,8 +37,6 @@ const Sidebar = () => {
         }
       }}
       variant="permanent"
-
-      
     >
       <List>
         {menuItems.map((item) => (
