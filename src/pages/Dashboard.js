@@ -173,6 +173,137 @@ const Dashboard = () => {
           </Grid>
         </Grid>
 
+
+
+
+
+
+<div className="container">
+<div className="row equalheight-container" data-kjs-app="content/equalheight" data-kjs-entityid="8">
+      <div className="col-sm-6 col-md-3 image-fit">
+        <a
+          tabIndex="-1"
+          aria-hidden="true"
+          data-kjs-app="content/card"
+          className="hidden-print fg-content-card"
+          href="/in/discontinued-machines/k-5-car-11806360.html"
+          data-kjs-entityid="9"
+        >
+          <div data-kjs-hover="toggle">
+            <img
+              alt="Car cleaning1"
+              title="Car cleaning1"
+              src="https://s1.kaercher-media.com/media/image/file/1789/d3/autoreinigung1.webp"
+            />
+            <div className="fc-overlay" style={{ display: 'block', opacity: 0 }}>
+              <div className="fc-text" style={{ marginTop: '51px', opacity: 0 }}>
+                About the products
+              </div>
+            </div>
+          </div>
+        </a>
+        <div className="equalheight-element" style={{ minHeight: '63px' }}>
+          <a href="/in/home-garden/pressure-washers.html" className="d-block">
+            <h3 className="mobileheadline headlinebottom">K series High pressure washers</h3>
+          </a>
+          <p>For occasional use and moderate levels of dirt.</p>
+        </div>
+      </div>
+
+      <div className="col-sm-6 col-md-3 image-fit">
+        <a
+          tabIndex="-1"
+          aria-hidden="true"
+          data-kjs-app="content/card"
+          className="hidden-print fg-content-card"
+          href="/in/accessory/wb-150-power-brush-26432370.html"
+          data-kjs-entityid="10"
+        >
+          <div data-kjs-hover="toggle">
+            <img
+              alt="Car cleaning2"
+              title="Car cleaning2"
+              src="https://s1.kaercher-media.com/media/image/file/1790/d3/autoreinigung2.webp"
+            />
+            <div className="fc-overlay" style={{ display: 'none', opacity: 0.98 }}>
+              <div className="fc-text" style={{ marginTop: '61px', opacity: 0 }}>
+                About the product
+              </div>
+            </div>
+          </div>
+        </a>
+        <div className="equalheight-element" style={{ minHeight: '63px' }}>
+          <a href="/in/home-garden/cleaning-and-care-agents.html" className="d-block">
+            <h3 className="mobileheadline headlinebottom">Power brush</h3>
+          </a>
+          <p>For splash-free cleaning of sensitive surfaces.</p>
+        </div>
+      </div>
+
+      <div className="col-sm-6 col-md-3 image-fit">
+        <a
+          tabIndex="-1"
+          aria-hidden="true"
+          data-kjs-app="content/card"
+          className="hidden-print fg-content-card"
+          href=""
+          data-kjs-entityid="11"
+        >
+          <div data-kjs-hover="toggle">
+            <img
+              alt="Car cleaning3"
+              title="Car cleaning3"
+              src="https://s1.kaercher-media.com/media/image/file/1792/d3/autoreinigung3.webp"
+            />
+            <div className="fc-overlay" style={{ display: 'none', opacity: 0.98 }}>
+              <div className="fc-text" style={{ marginTop: '61px', opacity: 0 }}>
+                About the products
+              </div>
+            </div>
+          </div>
+        </a>
+        <div className="equalheight-element" style={{ minHeight: '63px' }}>
+          <a href="" className="d-block">
+            <h3 className="mobileheadline headlinebottom">MV Series multi-purpose vacs</h3>
+          </a>
+          <p>Removes all kinds of dirt.</p>
+        </div>
+      </div>
+
+      <div className="col-sm-6 col-md-3 image-fit">
+        <a
+          tabIndex="-1"
+          aria-hidden="true"
+          data-kjs-app="content/card"
+          className="hidden-print fg-content-card"
+          href="/in/home-garden/cleaning-and-care-agents.html"
+          data-kjs-entityid="12"
+        >
+          <div data-kjs-hover="toggle">
+            <img
+              alt="Car cleaning4"
+              title="Car cleaning4"
+              src="https://s1.kaercher-media.com/media/image/file/1793/d3/autoreinigung4.webp"
+            />
+            <div className="fc-overlay" style={{ display: 'none', opacity: 0.98 }}>
+              <div className="fc-text" style={{ marginTop: '61px', opacity: 0 }}>
+                About the product
+              </div>
+            </div>
+          </div>
+        </a>
+        <div className="equalheight-element" style={{ minHeight: '63px' }}>
+          <a href="/in/home-garden/cleaning-and-care-agents.html" className="d-block">
+            <h3 className="mobileheadline headlinebottom">Car interior cleaning kit</h3>
+          </a>
+          <p>Accessory kit for all cleaning tasks inside the car.</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+       
         {/* Add Dashboard content here */}
       </div>
     </div>
