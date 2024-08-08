@@ -4,6 +4,7 @@ import Sidebar from "../components/Sidebar";
 
 const CustomerDetails = () => {
   return (
+    
     <div style={{ display: "flex" }}>
       <div style={{ flexGrow: 1, padding: "20px" }}>
         <h2>Customer Details</h2>
