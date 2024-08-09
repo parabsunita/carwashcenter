@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -21,8 +21,24 @@ import AuthLayout from "./components/AuthLayout";
 import DashboardLayout from "./components/DashboardLayout";
 import Register from "./pages/Register";
 import Payments from "./pages/Payments";
+import Loader from "./components/Loader"; // Import the Loader component
+import './App.css'; // Import the App.css for styling
 
 function App() {
+  // State to manage loading
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a data fetch or authentication check
+    const loadData = async () => {
+      // Simulate a delay for the loader
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // 2 seconds delay
+      setLoading(false);
+    };
+
+    loadData();
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -32,7 +48,7 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/register" element={<Register/>}/>
+            <Route path="/register" element={<Register />} />
           </Route>
 
           {/* Dashboard Routes */}
@@ -57,6 +73,11 @@ function App() {
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </Router>
+      {loading && (
+        <div className="loader-overlay">
+          <Loader />
+        </div>
+      )}
     </ThemeProvider>
   );
 }

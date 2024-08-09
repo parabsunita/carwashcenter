@@ -1,77 +1,93 @@
 /* Container for the entire NodeService component */
 .node-service-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-  }
-  
-  /* Flex container for the header section and button */
-  .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensures the heading and button are spaced apart */
-    margin-bottom: 24px;
-  }
-  
-  /* Title of the header */
-  .header-title {
-    margin: 0;
-  }
-  
-  /* Button for adding a new service */
-  .add-service-button {
-    width: auto;
-  }
-  
-  /* Modal container */
-  .modal-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 600px;
-    background-color: #fff;
-    border: 2px solid #000;
-    box-shadow: 24px;
-    padding: 16px;
-    border-radius: 8px;
-    position: relative;
-  }
-  
-  /* Close button style */
-  .close-button {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  }
-  
-  /* Modal header styling */
-  .modal-header {
-    border-bottom: 2px solid #000;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-  }
-  
-  /* Container for the form inside the modal */
-  .form-container {
-    margin-bottom: 16px;
-  }
-  
-  /* Actions container in the modal */
-  .modal-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-  }
-  
-  /* Button for saving changes */
-  .save-button {
-    margin-right: 8px;
-  }
-  
-  /* Button for canceling */
-  .cancel-button {
-    margin-left: 8px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+/* Flex container for the header section and button */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures the heading and button are spaced apart */
+  margin-bottom: 24px;
+}
+
+/* Title of the header */
+.header-title {
+  margin: 0;
+}
+
+/* Button for adding a new service */
+.add-service-button {
+  width: auto;
+}
+
+/* Modal container */
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Close button style */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #000; /* Ensures the close icon is visible */
+}
+
+/* Modal header styling */
+.modal-header {
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures title and close button are spaced apart */
+}
+
+/* Container for the form inside the modal */
+.form-container {
+  margin-bottom: 16px;
+}
+
+/* Actions container in the modal */
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+/* Button for saving changes */
+.save-button {
+  margin-right: 8px;
+}
+
+/* Button for canceling */
+.cancel-button {
+  margin-left: 8px;
+}
+
+/* Loader overlay (ensure it's centered) */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

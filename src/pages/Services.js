@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import CustomTable from "../components/CustomTable";
+import Loader from "../components/Loader"; // Import the Loader component
 import "../css/Services.css"; // Import the CSS file
 
 const NodeService = () => {
@@ -24,8 +25,8 @@ const NodeService = () => {
     { id: 2, name: "Exterior and Interior Wash", price: "₹500" },
     { id: 3, name: "Steam Wash", price: "₹600" },
   ]);
-
   const [formValues, setFormValues] = useState({ name: "", price: "" });
+  const [loading, setLoading] = useState(false); // Add loading state
 
   const handleOpen = (service = null) => {
     setEditMode(!!service);
@@ -34,9 +35,19 @@ const NodeService = () => {
     setOpen(true);
   };
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    if (loading) {
+      setLoading(false); // Ensure loader is hidden if open is set to false
+    }
+  };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    setLoading(true); // Show loader on submit
+  
+    // Simulate a submit operation with a delay
+    // await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+  
     if (editMode) {
       setServices(services.map(service =>
         service.id === currentService.id
@@ -46,8 +57,15 @@ const NodeService = () => {
     } else {
       setServices([...services, { id: Date.now(), ...formValues }]);
     }
-    handleClose();
+  
+    handleClose(); // Close modal after processing
+    
+    // Hide loader after 5 seconds
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000); // 5000 milliseconds = 5 seconds
   };
+  
 
   const handleDelete = (id) => {
     setServices(services.filter(service => service.id !== id));
@@ -152,6 +170,11 @@ const NodeService = () => {
           </Box>
         </Fade>
       </Modal>
+      {loading && (
+        <div className="loader-overlay">
+          <Loader />
+        </div>
+      )}
     </div>
   );
 };
