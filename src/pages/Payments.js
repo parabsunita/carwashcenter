@@ -9,14 +9,13 @@ import {
   TextField,
   Tooltip,
   IconButton,
+  Grid,
   InputLabel,
-  Grid
 } from '@mui/material';
-
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import CustomTable from '../components/CustomTable'; // Import CustomTable component
+import CustomTable from '../components/CustomTable';
 import "../css/Payments.css"; // Import the CSS file
 
 const initialPaymentData = [
@@ -28,7 +27,17 @@ const initialPaymentData = [
 const statusColors = {
   Completed: '#4CAF50', // Green
   Pending: '#FFEB3B',   // Yellow
-  Closed: '#F44336',    // Red
+  NotPaid: '#F44336',   // Red
+};
+
+const getStatusColor = (payment) => {
+  if (payment.paymentStatus === 'Completed') {
+    return statusColors.Completed;
+  } else if (payment.paymentAmount > 0 && payment.paymentStatus === 'Pending') {
+    return statusColors.Pending;
+  } else {
+    return statusColors.NotPaid;
+  }
 };
 
 const Payments = () => {
@@ -93,12 +102,27 @@ const Payments = () => {
 
   const tableData = {
     headings: [
-      { title: 'Customer Name', field: 'customerName', width: 3 },
+      { title: 'Customer Name', field: 'customerName', width: 2 },
       { title: 'Payment Amount', field: 'paymentAmount', width: 2 },
       { title: 'Payment Status', field: 'paymentStatus', width: 2 },
       { title: 'Account Status', field: 'accountStatus', width: 2 },
     ],
-    data: payments,
+    data: payments.map(payment => ({
+      ...payment,
+      paymentStatus: (
+        <Box
+          sx={{
+            backgroundColor: getStatusColor(payment),
+            color: '#fff',
+            padding: '4px 8px',
+            borderRadius: '12px',
+            textAlign: 'center',
+          }}
+        >
+          {payment.paymentStatus}
+        </Box>
+      ),
+    })),
     actions: [
       {
         label: 'Edit',
