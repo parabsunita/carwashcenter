@@ -11,14 +11,16 @@ import theme from "./theme";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import Dashboard from "./pages/Dashboard";
-import NodeService from "./pages/NodeService";
+import NodeService from "./pages/Services";
 import ContactDetails from "./pages/ContactDetails";
-import CustomerDetails from "./pages/CustomerDetails";
+import CustomerDetails from "./pages/Customers";
 import PlanDetails from "./pages/PlanDetails";
+import PlanList from "./pages/PlanList";
 import AuthenticatedRoute from "./components/AuthenticatedRoute";
 import AuthLayout from "./components/AuthLayout";
 import DashboardLayout from "./components/DashboardLayout";
 import Register from "./pages/Register";
+import Payments from "./pages/Payments";
 
 function App() {
   return (
@@ -43,10 +45,12 @@ function App() {
             }
           >
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/node-service" element={<NodeService />} />
-            <Route path="/contact-details" element={<ContactDetails />} />
-            <Route path="/customer-details" element={<CustomerDetails />} />
+            <Route path="/services" element={<NodeService />} />
+            <Route path="/contact" element={<ContactDetails />} />
+            <Route path="/customers" element={<CustomerDetails />} />
             <Route path="/plan-details" element={<PlanDetails />} />
+            <Route path="/plans" element={<PlanList />} />
+            <Route path="/payments" element={<Payments />} />
           </Route>
 
           {/* Redirect all other paths to login */}
