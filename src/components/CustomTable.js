@@ -1,27 +1,25 @@
-import React from 'react';
-import { Box, Typography, Grid, Button } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import React, { useState } from 'react';
+import { Box, Typography, Grid, Button, Menu, MenuItem } from '@mui/material';
 import '../css/CustomTable.css'; // Import the CSS file
 
 const CustomTable = ({ tableData }) => {
-  const { headings, data, actions } = tableData;
-  const showActions = actions && actions.length > 0;
+  const { headings, data, onStatusChangeClick } = tableData;
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [currentItem, setCurrentItem] = useState(null);
 
-  // Define getStatusColor function for text color
-  const getStatusClass = (item) => {
-    const statusClasses = {
-      Completed: 'completed-text',  // Green
-      Pending: 'pending-text',      // Yellow
-      NotPaid: 'not-paid-text',      // Red
-    };
-    if (item.paymentStatus === 'Completed') {
-      return statusClasses.Completed;
-    } else if (item.paymentAmount > 0 && item.paymentStatus === 'Pending') {
-      return statusClasses.Pending;
-    } else {
-      return statusClasses.NotPaid;
-    }
+  const handleStatusClick = (event, item) => {
+    setAnchorEl(event.currentTarget);
+    setCurrentItem(item);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+    setCurrentItem(null);
+  };
+
+  const handleChangeStatus = (status) => {
+    onStatusChangeClick(currentItem, status);
+    handleCloseMenu();
   };
 
   return (
@@ -29,57 +27,85 @@ const CustomTable = ({ tableData }) => {
       <Grid container spacing={1} className="table-header-row">
         {/* Render heading columns */}
         {headings.map((heading, index) => (
-          <Grid item xs={heading.width || 2} key={index} className="table-header">
+          <Grid
+            item
+            xs={heading.width || 2}
+            key={index}
+            className={`table-header ${heading.field === 'date' || heading.field === 'time' ? 'centered-header' : ''}`}
+          >
             <Typography variant="h6">{heading.title}</Typography>
           </Grid>
         ))}
-        {/* Render actions heading if actions are provided */}
-        {showActions && (
-          <Grid item xs={actions.length * 2} className="table-header">
-            <Typography variant="h6">Actions</Typography>
-          </Grid>
-        )}
       </Grid>
       <Box className="table-body">
         {data.map(item => (
-          <Box
-            key={item.id}
-            className="table-row"
-          >
+          <Box key={item.id} className="table-row">
             <Grid container spacing={1} alignItems="center">
               {/* Render data cells */}
               {headings.map((heading, index) => (
-                <Grid item xs={heading.width || 2} key={index} className="table-cell">
-                  <Typography
-                    variant="body2"
-                    className={heading.field === 'paymentStatus' ? getStatusClass(item) : ''}
-                  >
-                    {heading.field === 'paymentAmount' ? `$${item[heading.field]}` : item[heading.field]}
+                <Grid
+                  item
+                  xs={heading.width || 2}
+                  key={index}
+                  className={`table-cell ${heading.field === 'date' || heading.field === 'time' ? 'centered-cell' : ''}`}
+                >
+                  <Typography variant="body2">
+                    {heading.field === 'status' ? (
+                      <Button
+                        variant="outlined"
+                        onClick={(event) => handleStatusClick(event, item)}
+                        className="status-button"
+                      >
+                        {item.status}
+                      </Button>
+                    ) : (
+                      item[heading.field]
+                    )}
                   </Typography>
                 </Grid>
               ))}
-              {/* Render actions if actions are provided */}
-              {showActions && (
-                <Grid item xs={actions.length * 2} className="table-actions">
-                  <Box className="action-buttons">
-                    {actions.map((action, index) => (
-                      <Button
-                        key={index}
-                        variant={action.variant || 'outlined'}
-                        color={action.color || 'default'}
-                        onClick={() => action.handler(item)}
-                        sx={{ minWidth: '30px', minHeight: '30px', padding: '4px' }}
-                      >
-                        {action.icon}
-                      </Button>
-                    ))}
-                  </Box>
-                </Grid>
-              )}
             </Grid>
           </Box>
         ))}
       </Box>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseMenu}
+        PaperProps={{
+          style: {
+            width: 150, // Fixed width for Menu
+          },
+        }}
+      >
+        <MenuItem
+          onClick={() => handleChangeStatus('Approved')}
+          style={{
+            width: '100%', // Ensure MenuItem fills the Menu width
+            textAlign: 'center', // Center-align text in MenuItem
+          }}
+        >
+          Approve
+        </MenuItem>
+        <MenuItem
+          onClick={() => handleChangeStatus('Declined')}
+          style={{
+            width: '100%', // Ensure MenuItem fills the Menu width
+            textAlign: 'center', // Center-align text in MenuItem
+          }}
+        >
+          Decline
+        </MenuItem>
+        <MenuItem
+          onClick={() => handleChangeStatus('On Hold')}
+          style={{
+            width: '100%', // Ensure MenuItem fills the Menu width
+            textAlign: 'center', // Center-align text in MenuItem
+          }}
+        >
+          On Hold
+        </MenuItem>
+      </Menu>
     </Box>
   );
 };

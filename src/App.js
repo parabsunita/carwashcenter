@@ -23,6 +23,7 @@ import Register from "./pages/Register";
 import Payments from "./pages/Payments";
 import Loader from "./components/Loader"; // Import the Loader component
 import './App.css'; // Import the App.css for styling
+import ServiceBookingTable from "./pages/ServiceBookingTable";
 
 function App() {
   // State to manage loading
@@ -60,13 +61,14 @@ function App() {
               </AuthenticatedRoute>
             }
           >
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
             <Route path="/services" element={<NodeService />} />
             <Route path="/contact" element={<ContactDetails />} />
             <Route path="/customers" element={<CustomerDetails />} />
             <Route path="/plan-details" element={<PlanDetails />} />
             <Route path="/plans" element={<PlanList />} />
             <Route path="/payments" element={<Payments />} />
+            <Route path="/bookings" element={<ServiceBookingTable/>}/>
           </Route>
 
           {/* Redirect all other paths to login */}

@@ -10,15 +10,15 @@ import {
   FormControl,
   FormHelperText,
   InputLabel,
+  Typography,
 } from "@mui/material";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { carwash_bg, logo } from "../assets/images/image";
-import { useTheme } from "@mui/material/styles";
-
+import CloseIcon from "@mui/icons-material/Close";
+import IconButton from "@mui/material/IconButton";
+import "../css/ContactDetails.css"; // Import the CSS file
 
 const ContactDetails = () => {
-  const theme = useTheme();
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
@@ -58,27 +58,42 @@ const ContactDetails = () => {
   ];
 
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email address").required("Required"),
-    password: Yup.string().required("Required"),
+    shop_name: Yup.string().required("Shop name is required"),
+    owner: Yup.string().required("Owner name is required"),
+    number: Yup.string().required("Mobile number is required"),
+    age: Yup.number().required("Age is required").positive().integer(),
+    state: Yup.string().required("State is required"),
+    address: Yup.string().required("Address is required"),
+    gst_number: Yup.string().required("GST number is required"),
+    email: Yup.string().email("Invalid email address").required("Email is required"),
   });
-  return (
-   
-    <div className="wrapper regiter Contact_details">
-    <div className="logo">
-      <div className="sign_head">
-        <h1>Contact Details</h1>
-      </div>
 
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ touched, errors }) => (
-          <Form>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+  return (
+    <div className="contact-details-container">
+      <Box className="header-container">
+        <Typography variant="h5" component="h1" className="header-title">
+          Contact Details
+        </Typography>
+      </Box>
+      <Box className="form-content">
+        <Formik
+          initialValues={{
+            shop_name: "",
+            owner: "",
+            number: "",
+            age: "",
+            state: "",
+            address: "",
+            gst_number: "",
+            email: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ touched, errors }) => (
+            <Form>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
                   <Field
                     name="shop_name"
                     as={TextField}
@@ -88,10 +103,8 @@ const ContactDetails = () => {
                     error={touched.shop_name && !!errors.shop_name}
                     helperText={touched.shop_name && errors.shop_name}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
                     name="owner"
                     as={TextField}
@@ -101,37 +114,35 @@ const ContactDetails = () => {
                     error={touched.owner && !!errors.owner}
                     helperText={touched.owner && errors.owner}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
                     name="number"
                     as={TextField}
                     label="Mobile Number"
                     variant="outlined"
                     fullWidth
-                    error={touched.Number && !!errors.Number}
-                    helperText={touched.Number && errors.Number}
+                    error={touched.number && !!errors.number}
+                    helperText={touched.number && errors.number}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
-                    name="Age"
+                    name="age"
                     as={TextField}
                     label="Age"
                     variant="outlined"
                     fullWidth
-                    error={touched.owner && !!errors.owner}
-                    helperText={touched.owner && errors.owner}
+                    error={touched.age && !!errors.age}
+                    helperText={touched.age && errors.age}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
-                  <FormControl fullWidth variant="outlined">
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <FormControl
+                    fullWidth
+                    variant="outlined"
+                    error={touched.state && !!errors.state}
+                  >
                     <InputLabel id="state-label">State</InputLabel>
                     <Field
                       as={Select}
@@ -140,104 +151,70 @@ const ContactDetails = () => {
                       id="state-select"
                       label="State"
                       fullWidth
-                      error={touched.state && !!errors.state}
-                      helperText={touched.state && errors.state}
                     >
-                      <MenuItem value="" disabled>Select State</MenuItem>
+                      <MenuItem value="" disabled>
+                        Select State
+                      </MenuItem>
                       {states.map((state) => (
                         <MenuItem key={state} value={state}>
                           {state}
                         </MenuItem>
                       ))}
                     </Field>
-                    {touched.state && errors.state ? (
+                    {touched.state && errors.state && (
                       <FormHelperText error>{errors.state}</FormHelperText>
-                    ) : null}
+                    )}
                   </FormControl>
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
-                    name="owner"
-                    as={TextField}
-                    label="Owner Name"
-                    variant="outlined"
-                    fullWidth
-                    error={touched.owner && !!errors.owner}
-                    helperText={touched.owner && errors.owner}
-                  />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
-                  <Field
-                    name="Address"
+                    name="address"
                     as={TextField}
                     label="Address"
                     variant="outlined"
                     fullWidth
-                    error={touched.Address && !!errors.Address}
-                    helperText={touched.Address && errors.Address}
+                    error={touched.address && !!errors.address}
+                    helperText={touched.address && errors.address}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
                     name="gst_number"
                     as={TextField}
                     label="GST Number"
                     variant="outlined"
                     fullWidth
-                    error={touched.owner && !!errors.owner}
-                    helperText={touched.owner && errors.owner}
+                    error={touched.gst_number && !!errors.gst_number}
+                    helperText={touched.gst_number && errors.gst_number}
                   />
-                </Box>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
+                </Grid>
+                <Grid item xs={12} sm={6}>
                   <Field
-                    name="Email"
+                    name="email"
                     as={TextField}
                     label="Email Id"
                     variant="outlined"
                     fullWidth
-                    error={touched.owner && !!errors.owner}
-                    helperText={touched.owner && errors.owner}
+                    error={touched.email && !!errors.email}
+                    helperText={touched.email && errors.email}
                   />
-                </Box>
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <Box mb={0} sx={{ mt: 2 }}>
-                  <Field
-                    name="owner"
-                    as={TextField}
-                    label="Owner Name"
-                    variant="outlined"
-                    fullWidth
-                    error={touched.owner && !!errors.owner}
-                    helperText={touched.owner && errors.owner}
-                  />
-                </Box>
-              </Grid>
-            </Grid>
-            <Box display="flex" justifyContent="center" mt={2} width="100%">
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                sx={{ width: '60%' }} // Adjust width to 60%
-              >
-                Save
-              </Button>
-            </Box>
-
-          </Form>
-        )}
-      </Formik>
+              <Box className="form-actions">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className="save-button"
+                >
+                  Save
+                </Button>
+              </Box>
+            </Form>
+          )}
+        </Formik>
+      </Box>
     </div>
-  </div>
   );
 };
 

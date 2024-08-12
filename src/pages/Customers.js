@@ -15,6 +15,7 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import PaymentIcon from "@mui/icons-material/Payment"; // Import payment icon
 import "../css/Customers.css"; // Import the CSS file
 
 const initialCustomerData = [
@@ -23,8 +24,15 @@ const initialCustomerData = [
   { id: 3, name: "Alice Johnson", appointmentDate: "2024-08-20", service: "Steam Wash", status: "Completed", contact: "456-789-1230" },
 ];
 
+const initialPaymentData = [
+  { id: 1, customerName: 'John Doe', paymentAmount: 100, paymentStatus: 'Completed', accountStatus: 'Active' },
+  { id: 2, customerName: 'Jane Smith', paymentAmount: 200, paymentStatus: 'Pending', accountStatus: 'Active' },
+  { id: 3, customerName: 'Alice Johnson', paymentAmount: 150, paymentStatus: 'Completed', accountStatus: 'Closed' },
+];
+
 const CustomerDetails = () => {
   const [open, setOpen] = useState(false);
+  const [showPayments, setShowPayments] = useState(false); // New state to control payment modal
   const [customers, setCustomers] = useState(initialCustomerData);
   const [currentCustomer, setCurrentCustomer] = useState(null);
   const [formValues, setFormValues] = useState({
@@ -34,8 +42,10 @@ const CustomerDetails = () => {
     status: "",
     contact: "",
   });
+  const [currentPayments, setCurrentPayments] = useState([]);
 
   const handleOpen = (customer = null) => {
+    setShowPayments(false); // Ensure form modal is in the correct state
     if (customer) {
       setCurrentCustomer(customer);
       setFormValues({
@@ -86,6 +96,13 @@ const CustomerDetails = () => {
     setCustomers(customers.filter((customer) => customer.id !== id));
   };
 
+  const handlePaymentsOpen = (customer) => {
+    setShowPayments(true);
+    setCurrentCustomer(customer);
+    setCurrentPayments(initialPaymentData.filter(payment => payment.customerName === customer.name));
+    setOpen(true);
+  };
+
   return (
     <div className="customer-details-container">
       <Box className="header-container">
@@ -126,6 +143,16 @@ const CustomerDetails = () => {
                       <DeleteIcon />
                     </IconButton>
                   </Tooltip>
+                  <Tooltip title="View Payments">
+                    <IconButton
+                      size="small"
+                      color="primary"
+                      onClick={() => handlePaymentsOpen(customer)} // Open payments modal
+                      className="payments-button"
+                    >
+                      <PaymentIcon />
+                    </IconButton>
+                  </Tooltip>
                 </Box>
               </Box>
             </Grid>
@@ -163,85 +190,116 @@ const CustomerDetails = () => {
             >
               <CloseIcon />
             </IconButton>
-            <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
-              <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
-                {currentCustomer ? "Edit Customer" : "Add Customer"}
-              </Typography>
-            </Box>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <InputLabel htmlFor="name">Name</InputLabel>
-                <TextField
-                  id="name"
-                  name="name"
+            {!showPayments ? (
+              <>
+                <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                    {currentCustomer ? "Edit Customer" : "Add Customer"}
+                  </Typography>
+                </Box>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="name">Name</InputLabel>
+                    <TextField
+                      id="name"
+                      name="name"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.name}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="appointmentDate">Appointment Date</InputLabel>
+                    <TextField
+                      id="appointmentDate"
+                      name="appointmentDate"
+                      variant="outlined"
+                      type="date"
+                      fullWidth
+                      value={formValues.appointmentDate}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="service">Service</InputLabel>
+                    <TextField
+                      id="service"
+                      name="service"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.service}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="status">Status</InputLabel>
+                    <TextField
+                      id="status"
+                      name="status"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.status}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="contact">Contact</InputLabel>
+                    <TextField
+                      id="contact"
+                      name="contact"
+                      variant="outlined"
+                      fullWidth
+                      value={formValues.contact}
+                      onChange={handleChange}
+                    />
+                  </Grid>
+                </Grid>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSave}
+                  sx={{ mt: 2 }}
+                >
+                  {currentCustomer ? "Save Changes" : "Add Customer"}
+                </Button>
+                <Button
                   variant="outlined"
-                  fullWidth
-                  value={formValues.name}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <InputLabel htmlFor="appointmentDate">Appointment Date</InputLabel>
-                <TextField
-                  id="appointmentDate"
-                  name="appointmentDate"
+                  color="error"
+                  onClick={handleClose}
+                  sx={{ mt: 2, ml: 2 }}
+                >
+                  Cancel
+                </Button>
+              </>
+            ) : (
+              <>
+                <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                    Payments for {currentCustomer?.name}
+                  </Typography>
+                </Box>
+                <Grid container spacing={2}>
+                  {currentPayments.map((payment) => (
+                    <Grid item xs={12} key={payment.id}>
+                      <Box className="payment-card">
+                        <Typography variant="body1">Payment Amount: ${payment.paymentAmount}</Typography>
+                        <Typography variant="body2">Payment Status: {payment.paymentStatus}</Typography>
+                        <Typography variant="body2">Account Status: {payment.accountStatus}</Typography>
+                      </Box>
+                    </Grid>
+                  ))}
+                </Grid>
+                <Button
                   variant="outlined"
-                  type="date"
-                  fullWidth
-                  value={formValues.appointmentDate}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <InputLabel htmlFor="service">Service</InputLabel>
-                <TextField
-                  id="service"
-                  name="service"
-                  variant="outlined"
-                  fullWidth
-                  value={formValues.service}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <InputLabel htmlFor="status">Status</InputLabel>
-                <TextField
-                  id="status"
-                  name="status"
-                  variant="outlined"
-                  fullWidth
-                  value={formValues.status}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <InputLabel htmlFor="contact">Contact</InputLabel>
-                <TextField
-                  id="contact"
-                  name="contact"
-                  variant="outlined"
-                  fullWidth
-                  value={formValues.contact}
-                  onChange={handleChange}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleSave}
-              sx={{ mt: 2 }}
-            >
-              {currentCustomer ? "Save Changes" : "Add Customer"}
-            </Button>
-            <Button
-              variant="outlined"
-              color="error"
-              onClick={handleClose}
-              sx={{ mt: 2, ml: 2 }}
-            >
-              Cancel
-            </Button>
+                  color="primary"
+                  onClick={handleClose}
+                  sx={{ mt: 2 }}
+                >
+                  Close
+                </Button>
+              </>
+            )}
           </Box>
         </Fade>
       </Modal>
