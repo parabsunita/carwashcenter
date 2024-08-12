@@ -1,0 +1,49 @@
+.custom-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.table-header-row {
+  background-color: #f5f5f5;
+}
+
+.table-header {
+  padding: 8px;
+  font-weight: bold;
+}
+
+.centered-header {
+  text-align: center;
+}
+
+.table-body {
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+.table-row {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-cell {
+  padding: 8px;
+}
+
+.centered-cell {
+  text-align: center;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.status-button {
+  width: 100%;
+}
+
+.menu-item {
+  width: 150px; /* Fixed width for MenuItem */
+  text-align: center; /* Center-align text in MenuItem */
+}

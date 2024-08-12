@@ -1,0 +1,41 @@
+/* Container for the entire ContactDetails component */
+.contact-details-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+  }
+  
+  /* Container for the header section */
+  .header-container {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Title of the header */
+  .header-title {
+    margin-bottom: 16px;
+  }
+  
+  /* Form content container */
+  .form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Form actions container */
+  .form-actions {
+    margin-top: 24px; /* Adjust the margin as needed */
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+  }
+  
+  /* Save button styling */
+  .save-button {
+    width: 200px; /* Set the desired width */
+    float: right;
+  }
+  

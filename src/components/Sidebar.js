@@ -11,11 +11,14 @@ const Sidebar = () => {
   const navbarHeight = "64px"; // Adjust this value to match your Navbar height
 
   const menuItems = [
-    { text: "Dashboard", path: "/dashboard" },
-    { text: "Service", path: "/node-service" },
-    { text: "Contact Details", path: "/contact-details" },
-    { text: "Customer Details", path: "/customer-details" },
-    { text: "Plan Details", path: "/plan-details" },
+    { text: "Dashboard", path: "/" },
+    { text: "Service", path: "/services" },  
+    { text: "Plan", path: "/plans" },
+    { text: "Customers", path: "/customers" },
+    {text:"Bookings",path:"/bookings"},
+    // { text: "Payments", path: "/payments" },
+    { text: "Profile", path: "/contact" }
+
   ];
 
   return (
