@@ -58,7 +58,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <Box className="header">
         <Typography variant="h5" component="h1" className="dashboard-title">
-          Dashboard
+          Welcome Johnwick 
         </Typography>
         <Button variant="contained" className="view-reports-button">
           View Reports
@@ -66,48 +66,48 @@ const Dashboard = () => {
       </Box>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6} md={3}>
-          <Card className="animated-card" sx={{ backgroundColor: '#E3F2FD', textAlign: 'center' }}>
+          <Card className="animated-card" sx={{ backgroundColor: '#f5e6ff', textAlign: 'center' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="primary">
+              <Typography variant="h5" component="div"  sx={{ color: 'heading1.main' }}>
                 Total Cars Serviced
               </Typography>
-              <Typography variant="h4" component="div">
+              <Typography variant="h6" component="div">
                 {data.totalCarsServiced}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Card className="animated-card" sx={{ backgroundColor: '#FFEBEE', textAlign: 'center' }}>
+          <Card className="animated-card" sx={{ backgroundColor: '#ffeee2', textAlign: 'center' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="error">
+              <Typography variant="h5" component="div" sx={{ color: 'heading1.main' }}>
                 Ongoing Services
               </Typography>
-              <Typography variant="h4" component="div">
+              <Typography variant="h6" component="div">
                 {data.ongoingServices}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Card className="animated-card" sx={{ backgroundColor: '#FFF9C4', textAlign: 'center' }}>
+          <Card className="animated-card" sx={{ backgroundColor: '#e8f3fe', textAlign: 'center' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="warning">
+              <Typography variant="h5" component="div"  sx={{ color: 'heading1.main' }}>
                 On Hold
               </Typography>
-              <Typography variant="h4" component="div">
+              <Typography variant="h6" component="div">
                 {data.onHoldServices}
               </Typography>
             </CardContent>
           </Card>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
-          <Card className="animated-card" sx={{ backgroundColor: '#C8E6C9', textAlign: 'center' }}>
+          <Card className="animated-card" sx={{ backgroundColor: '#d5bffdc7', textAlign: 'center' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="success">
+              <Typography variant="h5" component="div"  sx={{ color: 'heading1.main' }}>
                 Completed Services
               </Typography>
-              <Typography variant="h4" component="div">
+              <Typography variant="h6" component="div">
                 {data.completedServices}
               </Typography>
             </CardContent>
@@ -118,13 +118,13 @@ const Dashboard = () => {
         <Grid item xs={12} sm={6} md={4}>
           <Card className="animated-card" sx={{ textAlign: 'center', height: '100%' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="warning">
+              <Typography variant="h5" component="div" color="heading1" sx={{marginBottom: 3 , color: 'heading1.main' }}>
                 Customer Satisfaction
               </Typography>
-              <Box className="chart-container">
+              <Box className="chart-container" sx={{marginBottom: 3 }}>
                 <Doughnut data={chartData} options={chartOptions} />
               </Box>
-              <Typography variant="h4" component="div">
+              <Typography variant="h6" component="div">
                 {data.customerSatisfaction}%
               </Typography>
             </CardContent>
@@ -133,7 +133,7 @@ const Dashboard = () => {
         <Grid item xs={12} sm={6} md={8}>
           <Card className="animated-card" sx={{ textAlign: 'center', height: '100%' }}>
             <CardContent>
-              <Typography variant="h5" component="div" color="primary">
+              <Typography variant="h5" component="div" color="primary" sx={{ color: 'heading1.main' }}>
                 Overall Status
               </Typography>
               <Box className="chart-container">
