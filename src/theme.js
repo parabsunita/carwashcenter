@@ -1,5 +1,6 @@
 // src/theme.js
 import { createTheme } from "@mui/material/styles";
+import '../src/css/Font.css';
 
 const theme = createTheme({
   palette: {
@@ -9,11 +10,14 @@ const theme = createTheme({
     secondary: {
       main: "#e46400", // Yellow
     },
+    heading1: {
+      main: "#081e36", // Custom color for heading1
+    },
     primary1: {
       main: "#1c395d", // Custom primary color
     },
     background: {
-      default: "#ffffff", // White
+      default: "#f5f6fb", // White
     },
     custom: {
       apache: "#ff8c00",
@@ -26,14 +30,29 @@ const theme = createTheme({
       regentGray: "#8294a2",
       hoki: "#6684a4",
       hawaiianTan: "#915c16",
-      signup_Button :"#1a3675",
-      dashboard_des:"#344662",
+      signup_Button: "#1a3675",
+      dashboard_des: "#344662",
+      heading1:'#004897'
     },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Satoshi-Variable, sans-serif", 
     h6: {
+      fontFamily: "Satoshi-Variable, sans-serif", 
       color: "#081e36", 
+    },
+    h5:{
+      color: "#081e36",
+      fontWeight:"700",
+    },
+    h4:{
+    color:"#081e36",
+    },
+    body1: {
+      fontFamily: "Satoshi-Variable, sans-serif", 
+    },
+    customFontFamily: {
+      fontFamily: "Satoshi-Variable, sans-serif", 
     },
   },
 });

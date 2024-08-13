@@ -114,16 +114,17 @@ const NodeService = () => {
       >
         <Fade in={open}>
           <Box className="modal-container">
-            <IconButton
+            
+            <Box className="modal-header">
+              <Typography variant="h6" component="h2">
+                {editMode ? "Edit Service" : "Add Service"}
+              </Typography>
+              <IconButton
               onClick={handleClose}
               className="close-button"
             >
               <CloseIcon />
             </IconButton>
-            <Box className="modal-header">
-              <Typography variant="h6" component="h2">
-                {editMode ? "Edit Service" : "Add Service"}
-              </Typography>
             </Box>
             <Grid container spacing={2} className="form-container">
               <Grid item xs={12}>
