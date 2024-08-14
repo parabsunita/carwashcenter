@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import carWashLogo from '../images/car-wash-logo-bhUYW2jRQcqLo9UuMyEvew-JHZ_q0K4Qaya3JpzRgX6Mg.jpeg'; // Import the logo
 import { Lambo } from "../assets/images/image";
+import '../css/Sidebar.css';
 
 const Sidebar = () => {
   const location = useLocation();
@@ -64,6 +65,7 @@ const Sidebar = () => {
                 },
                 color: theme.palette.custom.apache, // Default color
               }}
+              className="sidebar-menu-list"
             >
               <ListItemText primary={item.text} />
             </ListItem>

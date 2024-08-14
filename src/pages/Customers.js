@@ -106,7 +106,7 @@ const CustomerDetails = () => {
   return (
     <div className="customer-details-container">
       <Box className="header-container">
-        <Typography variant="h6" component="h1" className="header-title">
+        <Typography variant="h5" component="h1" className="header-title">
           Customer Details
         </Typography>
         <Button variant="contained" onClick={() => handleOpen()} className="add-customer-button">
@@ -119,10 +119,10 @@ const CustomerDetails = () => {
             <Grid item xs={12} md={6} lg={4} key={customer.id}>
               <Box className="customer-card">
                 <Typography variant="h6">{customer.name}</Typography>
-                <Typography variant="body2">Appointment Date: {customer.appointmentDate}</Typography>
-                <Typography variant="body2">Service: {customer.service}</Typography>
-                <Typography variant="body2">Status: {customer.status}</Typography>
-                <Typography variant="body2">Contact: {customer.contact}</Typography>
+                <Typography variant="h6" className="customer-card-des">Appointment Date: {customer.appointmentDate}</Typography>
+                <Typography variant="h6" className="customer-card-des">Service: {customer.service}</Typography>
+                <Typography variant="h6" className="customer-card-des">Status: {customer.status}</Typography>
+                <Typography variant="h6" className="customer-card-des">Contact: {customer.contact}</Typography>
                 <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
                   <Tooltip title="Edit Customer">
                     <IconButton

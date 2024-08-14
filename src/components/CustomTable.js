@@ -25,13 +25,12 @@ const CustomTable = ({ tableData }) => {
   return (
     <Box className="custom-table-container">
       <Grid container spacing={1} className="table-header-row">
-        {/* Render heading columns */}
         {headings.map((heading, index) => (
           <Grid
             item
             xs={heading.width || 2}
             key={index}
-            className={`table-header ${heading.field === 'date' || heading.field === 'time' ? 'centered-header' : ''}`}
+            className={`table-header ${heading.field === 'date' || heading.field === 'time' || heading.field === 'status'? 'centered-header' : ''}`}
           >
             <Typography variant="h6">{heading.title}</Typography>
           </Grid>
@@ -41,7 +40,6 @@ const CustomTable = ({ tableData }) => {
         {data.map(item => (
           <Box key={item.id} className="table-row">
             <Grid container spacing={1} alignItems="center">
-              {/* Render data cells */}
               {headings.map((heading, index) => (
                 <Grid
                   item
@@ -74,7 +72,7 @@ const CustomTable = ({ tableData }) => {
         onClose={handleCloseMenu}
         PaperProps={{
           style: {
-            width: 150, // Fixed width for Menu
+            width: 170, // Fixed width for Menu
           },
         }}
       >

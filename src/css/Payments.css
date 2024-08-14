@@ -40,7 +40,6 @@
   .table-row {
     display: flex;
     align-items: center;
-    padding: 8px;
   }
   
   .table-cell {
