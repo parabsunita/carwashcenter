@@ -3,6 +3,7 @@ import { Box, Typography, Card, CardContent, Grid, Button } from '@mui/material'
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import "../css/Dashboard.css"; // Import the CSS file
+import "../css/CustomButton.css"
 
 // Register Chart.js components
 ChartJS.register(Title, Tooltip, Legend, ArcElement);
@@ -60,7 +61,7 @@ const Dashboard = () => {
         <Typography variant="h5" component="h1" className="dashboard-title">
           Welcome Johnwick 
         </Typography>
-        <Button variant="contained" className="view-reports-button">
+        <Button variant="contained" className="view-reports-button custom-button">
           View Reports
         </Button>
       </Box>

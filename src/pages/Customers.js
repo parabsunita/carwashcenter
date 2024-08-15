@@ -109,7 +109,7 @@ const CustomerDetails = () => {
         <Typography variant="h5" component="h1" className="header-title">
           Customer Details
         </Typography>
-        <Button variant="contained" onClick={() => handleOpen()} className="add-customer-button">
+        <Button variant="contained" onClick={() => handleOpen()} className="add-customer-button custom-button">
           Add Customer
         </Button>
       </Box>
@@ -182,7 +182,6 @@ const CustomerDetails = () => {
               boxShadow: 24,
               p: 4,
               position: 'relative',
-              borderRadius:"6px",
             }}
           >
             
@@ -269,6 +268,7 @@ const CustomerDetails = () => {
                   color="primary"
                   onClick={handleSave}
                   sx={{ mt: 2 }}
+                  className="custom-modal-btn custom-button"
                 >
                   {currentCustomer ? "Save Changes" : "Add Customer"}
                 </Button>

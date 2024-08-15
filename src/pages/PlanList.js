@@ -16,6 +16,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import CustomTable from '../components/CustomTable';
 import '../css/PlanList.css'; // Import the CSS file
+import "../css/CustomButton.css";
 
 // Sample services data
 const servicesData = [
@@ -120,7 +121,7 @@ const PlanList = () => {
         <Typography variant="h5" component="h1" className="header-title">
           Plans
         </Typography>
-        <Button variant="contained" onClick={() => handleOpen()} className="add-plan-button">
+        <Button variant="contained" onClick={() => handleOpen()} className="add-plan-button custom-button">
           Add Plan
         </Button>
       </Box>
@@ -141,7 +142,7 @@ const PlanList = () => {
               <CloseIcon />
             </IconButton>
             <Box className="modal-header">
-              <Typography variant="h6" component="h2">
+              <Typography variant="h6" component="h2" className='modal-custom-btn custom-button'>
                 {currentPlan ? 'Edit Plan' : 'Add Plan'}
               </Typography>
             </Box>
@@ -195,7 +196,7 @@ const PlanList = () => {
                 variant="contained"
                 color="primary"
                 onClick={handleSave}
-                className="save-button"
+                className="save-button custom-button"
               >
                 {currentPlan ? 'Save Changes' : 'Add Plan'}
               </Button>
