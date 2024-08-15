@@ -181,22 +181,31 @@ const CustomerDetails = () => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
-              position: 'relative'
+              position: 'relative',
+              borderRadius:"6px",
             }}
           >
-            <IconButton
+            
+            {!showPayments ? (
+              <>
+              <Grid container spacing={2}>
+                  <Grid item xs={6} >
+                  <Box sx={{ borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                    {currentCustomer ? "Edit Customer" : "Add Customer"}
+                  </Typography>
+                  </Box>
+                  </Grid>
+                  <Grid item xs={6}>
+                  <IconButton
               onClick={handleClose}
               sx={{ position: 'absolute', top: 8, right: 8 }}
             >
               <CloseIcon />
             </IconButton>
-            {!showPayments ? (
-              <>
-                <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
-                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
-                    {currentCustomer ? "Edit Customer" : "Add Customer"}
-                  </Typography>
-                </Box>
+                  </Grid>
+                </Grid>
+              
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <InputLabel htmlFor="name">Name</InputLabel>
