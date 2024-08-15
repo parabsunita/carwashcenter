@@ -1,4 +1,7 @@
-.sidebar-menu-list{
-    font-size: 18px;
+.sidebar-menu-list span{
+    font-size: 1.2rem;
     font-weight: 600;
+}
+.sidebar{
+    padding-top: 10%;
 }

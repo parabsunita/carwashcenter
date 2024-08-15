@@ -9,14 +9,14 @@ import '../css/Sidebar.css';
 const Sidebar = () => {
   const location = useLocation();
   const theme = useTheme();
-  const navbarHeight = "64px"; // Adjust this value to match your Navbar height
+  const navbarHeight = "4.8%"; // Adjust this value to match your Navbar height
 
   const menuItems = [
     { text: "Dashboard", path: "/" },
-    { text: "Service", path: "/services" },  
+    { text: "Service", path: "/services" },
     { text: "Plan", path: "/plans" },
     { text: "Customers", path: "/customers" },
-    {text:"Bookings",path:"/bookings"},
+    { text: "Bookings", path: "/bookings" },
     // { text: "Payments", path: "/payments" },
     { text: "Profile", path: "/contact" }
 
@@ -31,8 +31,8 @@ const Sidebar = () => {
         "& .MuiDrawer-paper": {
           width: 240,
           height: '100%',
-          mt: navbarHeight, 
-          backgroundImage: `url(${Lambo })`, // Set the background image
+          mt: navbarHeight,
+          backgroundImage: `url(${Lambo})`, // Set the background image
           backgroundSize: 'cover', // Cover the entire drawer
           zIndex: 0,
           backgroundPosition: 'center', // Center the background image
@@ -41,8 +41,9 @@ const Sidebar = () => {
         }
       }}
       variant="permanent"
+      
     >
-      <List>
+      <List className="sidebar">
         {menuItems.map((item) => (
           <Link
             to={item.path}
@@ -56,6 +57,7 @@ const Sidebar = () => {
                 '&.Mui-selected': {
                   backgroundColor: theme.palette.custom.cello,
                   color: theme.palette.custom.firefly,
+                 
                   '&:hover': {
                     backgroundColor: theme.palette.custom.cello,
                   },
@@ -67,11 +69,18 @@ const Sidebar = () => {
               }}
               className="sidebar-menu-list"
             >
-              <ListItemText primary={item.text} />
+              <ListItemText
+                primary={item.text}
+                sx={{
+                  fontWeight: '600', // Set font weight to bold
+                  fontSize: '1.2rem'    // Set the desired font size
+                }}
+              />
             </ListItem>
           </Link>
         ))}
       </List>
+
     </Drawer>
   );
 };

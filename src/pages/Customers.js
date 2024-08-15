@@ -104,7 +104,7 @@ const CustomerDetails = () => {
   };
 
   return (
-    <div className="customer-details-container">
+    <div className="main-container">
       <Box className="header-container">
         <Typography variant="h5" component="h1" className="header-title">
           Customer Details
@@ -118,11 +118,41 @@ const CustomerDetails = () => {
           {customers.map((customer) => (
             <Grid item xs={12} md={6} lg={4} key={customer.id}>
               <Box className="customer-card">
-                <Typography variant="h6">{customer.name}</Typography>
-                <Typography variant="h6" className="customer-card-des">Appointment Date: {customer.appointmentDate}</Typography>
-                <Typography variant="h6" className="customer-card-des">Service: {customer.service}</Typography>
-                <Typography variant="h6" className="customer-card-des">Status: {customer.status}</Typography>
-                <Typography variant="h6" className="customer-card-des">Contact: {customer.contact}</Typography>
+                <Grid container direction="column" spacing={1}>
+                  <Grid item>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        backgroundColor: '#f9f9bf',  // Highlight background
+                        fontWeight: 'bold',         // Make text bold
+                        padding: '4px',             // Add padding
+                        borderRadius: '4px'         // Optional: Add border-radius for rounded corners
+                      }}
+                    >
+                      {customer.name}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h6">
+                      <strong>Appointment Date:</strong> {customer.appointmentDate}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h6">
+                      <strong>Service:</strong> {customer.service}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h6">
+                      <strong>Status:</strong> {customer.status}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h6">
+                      <strong>Contact:</strong> {customer.contact}
+                    </Typography>
+                  </Grid>
+                </Grid>
                 <Box sx={{ mt: 2, display: 'flex', justifyContent: 'flex-end' }}>
                   <Tooltip title="Edit Customer">
                     <IconButton
@@ -282,22 +312,61 @@ const CustomerDetails = () => {
                 <Grid container spacing={2}>
                   {currentPayments.map((payment) => (
                     <Grid item xs={12} key={payment.id}>
-                      <Box className="payment-card">
-                        <Typography variant="body1">Payment Amount: ${payment.paymentAmount}</Typography>
-                        <Typography variant="body2">Payment Status: {payment.paymentStatus}</Typography>
-                        <Typography variant="body2">Account Status: {payment.accountStatus}</Typography>
-                      </Box>
-                    </Grid>
+                    <Box
+                      className="payment-card"
+                      sx={{
+                        padding: '16px',
+                        border: '1px solid #e0e0e0',
+                        borderRadius: '8px',
+                        backgroundColor: '#f9f9f9',
+                        boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                        marginBottom: '16px'
+                      }}
+                    >
+                      <Grid container spacing={2}>
+                        <Grid item xs={4}>
+                          <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+                            Payment Amount:
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={8}>
+                          <Typography variant="body1">
+                            ${payment.paymentAmount}
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                            Payment Status:
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={8}>
+                          <Typography variant="body2">
+                            {payment.paymentStatus}
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={4}>
+                          <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                            Account Status:
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={8}>
+                          <Typography variant="body2">
+                            {payment.accountStatus}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    </Box>
+                  </Grid>
                   ))}
                 </Grid>
-                <Button
+                {/* <Button
                   variant="outlined"
                   color="primary"
                   onClick={handleClose}
                   sx={{ mt: 2 }}
                 >
                   Close
-                </Button>
+                </Button> */}
               </>
             )}
           </Box>

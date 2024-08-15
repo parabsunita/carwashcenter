@@ -39,6 +39,7 @@
   padding: 12px; /* Increased padding for cells */
   font-size: 18px !important; /* Increased font size for table cells */
   padding: 20px !important;
+  font-weight: 500;
 }
 
 .centered-cell {
