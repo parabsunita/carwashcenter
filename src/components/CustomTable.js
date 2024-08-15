@@ -32,22 +32,22 @@ const CustomTable = ({ tableData }) => {
             key={index}
             className={`table-header ${heading.field === 'date' || heading.field === 'time' || heading.field === 'status'? 'centered-header' : ''}`}
           >
-            <Typography variant="h6">{heading.title}</Typography>
+            <Typography variant="h6" className='table-header-h6'>{heading.title}</Typography>
           </Grid>
         ))}
       </Grid>
       <Box className="table-body">
         {data.map(item => (
-          <Box key={item.id} className="table-row">
-            <Grid container spacing={1} alignItems="center">
+          <Box key={item.id} className="table-row custom-table-row">
+            <Grid container spacing={1} alignItems="center" className="custom-table-grid-row">
               {headings.map((heading, index) => (
                 <Grid
                   item
                   xs={heading.width || 2}
                   key={index}
-                  className={`table-cell ${heading.field === 'date' || heading.field === 'time' ? 'centered-cell' : ''}`}
+                  className={`table-cell custom-table-cell ${heading.field === 'date' || heading.field === 'time' ? 'centered-cell' : ''}`}
                 >
-                  <Typography variant="body2">
+                  <Typography variant="body2 custom-table-data">
                     {heading.field === 'status' ? (
                       <Button
                         variant="outlined"

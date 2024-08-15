@@ -308,7 +308,7 @@ const SignupPage = () => {
                         color: theme.palette.custom.signup_Button,
                       }
                     }}
-
+                  className="custom-button"
                   >
                     Sign up
                   </Button>

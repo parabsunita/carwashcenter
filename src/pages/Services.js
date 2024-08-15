@@ -100,7 +100,7 @@ const NodeService = () => {
         <Typography variant="h5" component="h1" className="header-title">
           Services
         </Typography>
-        <Button variant="contained" onClick={() => handleOpen()} className="add-service-button">
+        <Button variant="contained" onClick={() => handleOpen()} className="add-service-button custom-button">
           Add Service
         </Button>
       </Box>

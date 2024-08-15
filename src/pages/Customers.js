@@ -109,7 +109,7 @@ const CustomerDetails = () => {
         <Typography variant="h5" component="h1" className="header-title">
           Customer Details
         </Typography>
-        <Button variant="contained" onClick={() => handleOpen()} className="add-customer-button">
+        <Button variant="contained" onClick={() => handleOpen()} className="add-customer-button custom-button">
           Add Customer
         </Button>
       </Box>
@@ -211,22 +211,30 @@ const CustomerDetails = () => {
               border: "2px solid #000",
               boxShadow: 24,
               p: 4,
-              position: 'relative'
+              position: 'relative',
             }}
           >
-            <IconButton
+            
+            {!showPayments ? (
+              <>
+              <Grid container spacing={2}>
+                  <Grid item xs={6} >
+                  <Box sx={{ borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                    {currentCustomer ? "Edit Customer" : "Add Customer"}
+                  </Typography>
+                  </Box>
+                  </Grid>
+                  <Grid item xs={6}>
+                  <IconButton
               onClick={handleClose}
               sx={{ position: 'absolute', top: 8, right: 8 }}
             >
               <CloseIcon />
             </IconButton>
-            {!showPayments ? (
-              <>
-                <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
-                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
-                    {currentCustomer ? "Edit Customer" : "Add Customer"}
-                  </Typography>
-                </Box>
+                  </Grid>
+                </Grid>
+              
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <InputLabel htmlFor="name">Name</InputLabel>
@@ -290,6 +298,7 @@ const CustomerDetails = () => {
                   color="primary"
                   onClick={handleSave}
                   sx={{ mt: 2 }}
+                  className="custom-modal-btn custom-button"
                 >
                   {currentCustomer ? "Save Changes" : "Add Customer"}
                 </Button>

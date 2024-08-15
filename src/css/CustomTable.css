@@ -11,10 +11,15 @@
   border-radius: 6px 6px 0px 0px;
   border-bottom: 1px solid #081e36; /* Adding bottom border to header */
   font-size: 18px; /* Increasing font size */
+  font-weight: 700 !important;
   margin: 0px !important;
   width: 100% !important;
+  padding: 0px 10px !important
 }
-
+.table-header-h6{
+  font-weight: 700 !important;
+  color: #5094E7 !important;
+}
 .table-header {
   padding: 12px !important; 
   font-weight: bold;
@@ -34,12 +39,25 @@
 .table-row {
   border-bottom: 1px solid #ddd;
 }
+.custom-table-grid-row{
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  width: auto !important;
+  overflow-y: none !important;
+}
+.custom-table-cell{
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+.custom-table-data{
+  font-size: 18px !important;
+  font-weight: 500;
+}
 
 .table-cell {
   padding: 12px; /* Increased padding for cells */
   font-size: 18px !important; /* Increased font size for table cells */
-  padding: 20px !important;
-  font-weight: 500;
+  padding: 10px 20px !important;
 }
 
 .centered-cell {

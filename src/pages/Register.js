@@ -240,6 +240,7 @@ const Register = () => {
                     variant="contained"
                     color="primary"
                     sx={{ width: '60%' }} // Adjust width to 60%
+                    className="custom-button"
                   >
                     Register
                   </Button>
