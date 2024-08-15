@@ -20,10 +20,11 @@
   
   .customer-card {
     padding: 16px;
-    border: 1px solid grey;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-bottom: 16px;
     position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 6px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
   }
   
   .edit-button {
@@ -40,3 +41,7 @@
     font-size: 0.75rem; /* Adjust font size if needed */
   }
   
+  .customer-card-des{
+    font-size: 16px !important;
+    font-weight: 400 !important;
+  }

@@ -69,7 +69,8 @@ const ContactDetails = () => {
   });
 
   return (
-    <div className="contact-details-container">
+    <section className="contact-details-container-section">
+      <div className="contact-details-container">
       <Box className="header-container">
         <Typography variant="h5" component="h1" className="header-title">
           Contact Details
@@ -205,7 +206,7 @@ const ContactDetails = () => {
                   type="submit"
                   variant="contained"
                   color="primary"
-                  className="save-button"
+                  className="save-button custom-btn-pd"
                 >
                   Save
                 </Button>
@@ -215,6 +216,8 @@ const ContactDetails = () => {
         </Formik>
       </Box>
     </div>
+    </section>
+    
   );
 };
 
