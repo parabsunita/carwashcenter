@@ -53,9 +53,9 @@ const Navbar = () => {
 
   return (
     <StyledAppBar position="fixed">
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between",height:"5rem "}}>
         <Typography variant="h6">
-          <Logo src={logo_sm} alt="Logo" />
+          <Logo src={logo_sm} alt="Logo" className="logo" />
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "space-between" }} onClick={handleMenuClick}>
           <StyledButton style={{ textTransform: 'none',width:'auto',padding:"0px 30px" }} >

@@ -95,7 +95,7 @@ const NodeService = () => {
   };
 
   return (
-    <div className="node-service-container">
+    <div className="main-container">
       <Box className="header-container">
         <Typography variant="h5" component="h1" className="header-title">
           Services

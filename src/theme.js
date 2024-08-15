@@ -51,6 +51,12 @@ const theme = createTheme({
     body1: {
       fontFamily: "Satoshi-Variable, sans-serif", 
     },
+    body2:{
+      fontFamily: "Satoshi-Variable, sans-serif", 
+      fontWeight:500,
+      fontSize:"0.975rem",
+    },
+
     customFontFamily: {
       fontFamily: "Satoshi-Variable, sans-serif", 
     },

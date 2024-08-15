@@ -59,4 +59,33 @@ button {
   background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
   z-index: 1000; /* Ensures the overlay appears above all other content */
 }
+/* Close button style */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #000; /* Ensures the close icon is visible */
+}
 
+/* Modal header styling */
+.modal-header {
+  border-bottom: 1px solid #081e36 ;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  color: #081e36 !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures title and close button are spaced apart */
+}
+
+.logo{
+  position: absolute;
+  top: -1.5rem;
+  height: 8rem !important;
+
+}
+
+.main-container{
+  margin-top: 5%;
+}

@@ -39,23 +39,6 @@
   position: relative;
 }
 
-/* Close button style */
-.close-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  color: #000; /* Ensures the close icon is visible */
-}
-
-/* Modal header styling */
-.modal-header {
-  border-bottom: 2px solid #000;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Ensures title and close button are spaced apart */
-}
 
 /* Container for the form inside the modal */
 .form-container {
