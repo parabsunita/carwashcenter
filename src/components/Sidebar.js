@@ -9,7 +9,7 @@ import '../css/Sidebar.css';
 const Sidebar = () => {
   const location = useLocation();
   const theme = useTheme();
-  const navbarHeight = "4.8%"; // Adjust this value to match your Navbar height
+  const navbarHeight = "4%"; // Adjust this value to match your Navbar height
 
   const menuItems = [
     { text: "Dashboard", path: "/dashboard" },
@@ -73,7 +73,7 @@ const Sidebar = () => {
                 primary={item.text}
                 sx={{
                   fontWeight: '600', // Set font weight to bold
-                  fontSize: '1.2rem'    // Set the desired font size
+                  fontSize: '12px'    // Set the desired font size
                 }}
               />
             </ListItem>

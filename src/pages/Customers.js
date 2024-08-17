@@ -217,10 +217,10 @@ const CustomerDetails = () => {
             
             {!showPayments ? (
               <>
-              <Grid container spacing={2}>
+              <Grid container spacing={2} className="modal">
                   <Grid item xs={6} >
                   <Box sx={{ borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
-                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1rem', pb: 1 }}>
                     {currentCustomer ? "Edit Customer" : "Add Customer"}
                   </Typography>
                   </Box>
@@ -235,7 +235,7 @@ const CustomerDetails = () => {
                   </Grid>
                 </Grid>
               
-                <Grid container spacing={2}>
+                <Grid container spacing={2} className="modal-body">
                   <Grid item xs={12}>
                     <InputLabel htmlFor="name">Name</InputLabel>
                     <TextField
@@ -314,11 +314,11 @@ const CustomerDetails = () => {
             ) : (
               <>
                 <Box sx={{ borderBottom: '2px solid', borderBottomColor: (theme) => theme.palette.text.primary, mb: 2 }}>
-                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '1.25rem', pb: 1 }}>
+                  <Typography variant="h6" component="h2" sx={{ color: 'text.primary', fontSize: '0.8rem', pb: 1 }}>
                     Payments for {currentCustomer?.name}
                   </Typography>
                 </Box>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} className="modal-body">
                   {currentPayments.map((payment) => (
                     <Grid item xs={12} key={payment.id}>
                     <Box

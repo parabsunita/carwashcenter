@@ -8,7 +8,7 @@ import Settings from "@mui/icons-material/Settings"; // Settings icon
 import ContactMail from "@mui/icons-material/ContactMail"; // Contact Us icon
 
 const Logo = styled("img")({
-  height: "50px",
+  height: "40px",
 });
 
 const StyledAppBar = styled(AppBar)(({ theme }) => ({
@@ -53,7 +53,7 @@ const Navbar = () => {
 
   return (
     <StyledAppBar position="fixed">
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between",height:"5rem "}}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between",height:"2rem "}}>
         <Typography variant="h6">
           <Logo src={logo_sm} alt="Logo" className="logo" />
         </Typography>

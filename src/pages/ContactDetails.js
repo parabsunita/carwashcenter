@@ -70,7 +70,7 @@ const ContactDetails = () => {
 
   return (
     <section className="contact-details-container-section">
-      <div className="contact-details-container">
+      <div className="main-container">
       <Box className="header-container">
         <Typography variant="h5" component="h1" className="header-title">
           Contact Details

@@ -10,7 +10,7 @@
     transition: background 0.3s ease;
 }
 .view-reports-button,.add-service-button,.add-plan-button,.add-customer-button,.save-button{
-    width: auto;
+    width: 120px;
     border-radius: 90px;
     padding: 10px 20px;
     font-size: 14px !important;

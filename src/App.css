@@ -36,6 +36,7 @@ footer {
 button {
   background-color: var(--hoki);
   color: var(--hawaiian-tan);
+  
 }
 .wrapper {
   display: flex;
@@ -81,11 +82,17 @@ button {
 
 .logo{
   position: absolute;
-  top: -1.5rem;
-  height: 8rem !important;
+  top:-10%;
+  height: 5rem !important;
 
 }
 
 .main-container{
-  margin-top: 5%;
+  margin-top: 6%;
 }
+ input {
+  height: 1em !important;
+ }
+ .form-content label{
+  font-size: 0.8em !important;
+ }
