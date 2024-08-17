@@ -12,7 +12,7 @@ const Sidebar = () => {
   const navbarHeight = "4.8%"; // Adjust this value to match your Navbar height
 
   const menuItems = [
-    { text: "Dashboard", path: "/" },
+    { text: "Dashboard", path: "/dashboard" },
     { text: "Service", path: "/services" },
     { text: "Plan", path: "/plans" },
     { text: "Customers", path: "/customers" },

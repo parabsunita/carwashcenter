@@ -47,7 +47,7 @@ function App() {
         <Routes>
           {/* Auth Routes */}
           <Route element={<AuthLayout />}>
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/register" element={<Register />} />
           </Route>
@@ -61,7 +61,7 @@ function App() {
               </AuthenticatedRoute>
             }
           >
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/services" element={<NodeService />} />
             <Route path="/contact" element={<ContactDetails />} />
             <Route path="/customers" element={<CustomerDetails />} />

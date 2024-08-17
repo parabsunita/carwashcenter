@@ -91,7 +91,7 @@ const LoginPage = () => {
 
     <div className="right-wrapper">
 
-      <div className="logo">
+      <div className="">
         {/* <img src={logo}
             
             className="logo1"
@@ -118,7 +118,7 @@ const LoginPage = () => {
           fullWidth
           error={touched.email && !!errors.email}
           helperText={touched.email && errors.email}
-          value=""
+         
         />
       </Box>
       <Box mb={3}>
@@ -131,7 +131,7 @@ const LoginPage = () => {
           fullWidth
           error={touched.password && !!errors.password}
           helperText={touched.password && errors.password}
-          value=""
+     
         />
       </Box>
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -156,13 +156,13 @@ const LoginPage = () => {
         >
           Login
         </Button>
-        <Link component={RouterLink} to="/signup" variant="body2">
+        <Link component={RouterLink} to="/register" variant="body2">
           Don't have an account? Sign up here
         </Link>
       </Box>
-      <Link component={RouterLink} to="/register" variant="body2">
+      {/* <Link component={RouterLink} to="/register" variant="body2">
         Register
-      </Link>
+      </Link> */}
     </Form>
   )}
 </Formik>

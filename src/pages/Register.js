@@ -76,7 +76,7 @@ const Register = () => {
       </div>
 
       <div className="right-wrapper regiter">
-        <div className="logo">
+        <div className="">
           <div className="sign_head">
             <h1>Register</h1>
           </div>
